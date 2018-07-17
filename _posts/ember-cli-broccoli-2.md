@@ -96,7 +96,7 @@ Or to serve:
 EMBER_CLI_BROCCOLI_2=true EMBER_CLI_SYSTEM_TEMP=true ember serve
 ```
 
-When serving, you should notice that not `tmp` directory is created in the project. Note that `EMBER_CLI_SYSTEM_TEMP` only
+When serving, you should notice that the `tmp` directory is not created in the project. Note that `EMBER_CLI_SYSTEM_TEMP` only
 works in combination with `EMBER_CLI_BROCCOLI_2`.
 Please test this out and report any issues, or performance improvements/degradations as above.
 

@@ -29,7 +29,7 @@ to use the newly updated Broccoli master.
 I was fortunate enough to be invited to join the Ember-CLI face-to-face after [EmberConf 2018](http://emberconf.com/)
 in Portland earlier this year, due to my work on the Broccoli workshop that I presented at the conference and a
 [tutorial series](/broccolijs) that I produced. During this meeting, we formulated a plan of attack, and I drew up a
-quest issue [https://github.com/broccolijs/broccoli/issues/360](issue 360).
+quest issue ([issue 360](https://github.com/broccolijs/broccoli/issues/360)).
 
 Work then began over the following months, to upstream some required changes that had been made to `broccoli-builder` into
 the main Broccoli repository, as well as integrating the main Broccoli library back into Ember-CLI in parallel with

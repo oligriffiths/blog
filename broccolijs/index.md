@@ -23,7 +23,7 @@ Oh, yeah, and I want all that to be fast.
 
 Historically, we had grunt, and decided we didn't like configuration files.
 Then we had gulp, because we wanted to write code to compile our code, then it got slow.
-Then we had webpack that does bundling, minifaction, source maps, code splitting, but, it's kinda hard to configure.
+Then we had webpack that does bundling, minification, source maps, code splitting, but, it's kinda hard to configure.
 So Broccoli.js provides a simple Javascript API to do simple and complex file transformations, and do it fast.
 
 ## Tutorial
@@ -78,7 +78,7 @@ rsync'ing one directory into another), concatenate files of a certain type into 
 
 Nodes are what Broccoli uses to represent snapshots of directories and the transformations between states.
 
-Note that the term `tree` in Broccoli is often used to refer to a `node` and was the previously used to refer to
+Note that the term `tree` in Broccoli is often used to refer to a `node` and was previously used to refer to
 them (so don't get confused if you see the term tree used in other documentation).
 
 Nodes themselves don't actually contain file contents, and manipulations to the nodes don't happen when they are created.

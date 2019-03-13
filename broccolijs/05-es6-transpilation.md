@@ -58,7 +58,7 @@ js = babel(js, {
   sourceMap: 'inline',
 });
 
-// Copy CSS file into assets
+// Compile SCSS files
 const css = compileSass(
   [appRoot],
   'styles/app.scss',
@@ -95,7 +95,7 @@ Make a `.babelrc` file in the root directory:
 ```
 
 So what's happening here? First off, we've declared `js` as a mutable variable (`let`) rather than an immutable
-variable (`cosnt`) so we can re-assign it. Next, we pass the `js` tree into the babel transpiler, this will 
+variable (`const`) so we can re-assign it. Next, we pass the `js` tree into the babel transpiler, this will
 transpile the ES6 syntax to ES5. The `.bablerc` is the standard practice for configuring Babel, here we're targeting
 the last 2 major versions of each browser for transpilation, this means that language features that are unsupported in
 these browsers will have them transpiled into a format that *is* compatible.

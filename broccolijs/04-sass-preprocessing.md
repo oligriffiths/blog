@@ -57,8 +57,8 @@ const css = compileSass(
   "styles/app.scss",
   "assets/app.css",
   {
-    sourceMap: true,
-    sourceMapContents: true,
+    sourceMap: false,
+    sourceMapContents: false,
     annotation: "Sass files"
   }
 );

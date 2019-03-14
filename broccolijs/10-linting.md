@@ -6,7 +6,7 @@ Our dev environment is nearly complete, the last piece of the puzzle is linting.
 is the process of analyzing your files for syntax and code style errors, so they can be caught at build time, rather
 than runtime.
 
-We have 2 main file types, javacsript and scss files, so we should have linters for both:
+We have two main file types, javascript and scss files, so we should have linters for both:
 
 ```sh
 yarn add --dev broccoli-lint-eslint@^3.3.2 broccoli-sass-lint@^1.1.2
@@ -19,14 +19,14 @@ Now, update your `Brocfile.js` with:
 const funnel = require('broccoli-funnel');
 const merge = require('broccoli-merge-trees');
 const compileSass = require('broccoli-sass-source-maps')(require('sass'));
-const esLint = require("broccoli-lint-eslint");
-const sassLint = require("broccoli-sass-lint");
-const Rollup = require("broccoli-rollup");
-const LiveReload = require('broccoli-livereload');
-const log = require('broccoli-stew').log;
-const babel = require("rollup-plugin-babel");
+const Rollup = require('broccoli-rollup');
+const babel = require('rollup-plugin-babel');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
+const LiveReload = require('broccoli-livereload');
+const log = require('broccoli-stew').log;
+const esLint = require('broccoli-lint-eslint');
+const sassLint = require('broccoli-sass-lint');
 
 const appRoot = "app";
 

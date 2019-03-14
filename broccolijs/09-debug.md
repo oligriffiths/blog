@@ -27,7 +27,8 @@ tree = log(tree, {
 ```
 
 The `log` method is imported from the `broccoli-stew` package, and just wraps an existing node/tree, you can add multiple
-log methods to various stages of your pipeline, and each print the filename it contains to the screen, for example:
+log methods to various stages of your pipeline, and each `log` call prints the filenames it contains to the screen, for
+example:
 
 ```
 └── assets/
@@ -57,7 +58,7 @@ tree = debug(tree, 'my-tree');
 ```
 
 When running `yarn build`, you will now see a folder in the root of the project called `DEBUG` that contains a folder
-called `my-tree` with the contents of `tree` that whatever stage of the build it was added.
+called `my-tree` with the contents of `tree` at whatever stage of the build it was added.
 
 This is useful when you want to see the contents of files as they go through the various transformations, as opposed
 to just logging the file names.

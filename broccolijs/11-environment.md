@@ -3,9 +3,9 @@ date: 2018-04-27
 ---
 
 Environment configuration allows us to include or not include certain things in the build given certain
-configuration options. For example, we probably want to not include live reload for production builds,
-for this we need to have different environments. When building, we can provide an environment flag option.
-So lets go ahead and configure things to support this.
+configuration options. For example, we probably want to not include live reload or logging for production builds.
+For this we need to have different environments. When building, we can provide an environment flag option.
+So let's go ahead and configure things to support this.
 
 ```sh
 yarn add --dev broccoli-env@^0.0.1
@@ -19,15 +19,15 @@ the environment name, and I want to be able to print it to the console, so I'm u
 const funnel = require('broccoli-funnel');
 const merge = require('broccoli-merge-trees');
 const compileSass = require('broccoli-sass-source-maps')(require('sass'));
-const esLint = require("broccoli-lint-eslint");
-const sassLint = require("broccoli-sass-lint");
-const Rollup = require("broccoli-rollup");
-const LiveReload = require('broccoli-livereload');
-const log = require('broccoli-stew').log;
-const babel = require("rollup-plugin-babel");
+const Rollup = require('broccoli-rollup');
+const babel = require('rollup-plugin-babel');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
-const env = require('broccoli-env').getEnv() || 'development';
+const LiveReload = require('broccoli-livereload');
+const log = require('broccoli-stew').log;
+const esLint = require('broccoli-lint-eslint');
+const sassLint = require('broccoli-sass-lint');
+cconst env = require('broccoli-env').getEnv() || 'development';
 const isProduction = env === 'production';
 
 // Status
@@ -97,13 +97,13 @@ const public = funnel('public', {
 // Remove the existing module.exports and replace with:
 let tree = merge([html, js, css, public], {annotation: "Final output"});
 
-// Include live reaload server
 if (!isProduction) {
   // Log the output tree
   tree = log(tree, {
     output: 'tree',
   });
 
+  // Include the live reload server
   tree = new LiveReload(tree, {
     target: 'index.html',
   });
@@ -112,11 +112,12 @@ if (!isProduction) {
 module.exports = tree;
 ```
 
-What we've done here is wrapped the `debug` and `LiveReload` section in an `env === "development"`, this ensures the
-`debug` and `LiveReload` trees are not included in the build when making a production build.
+What we've done here is wrapped the `log` and `LiveReload` sections in an `env === "development"`, this ensures the
+`log` and `LiveReload` trees are not included in the build when making a production build. Also, JS and CSS
+sourcemaps aren't generated for the production environment.
 
-In order to pass in a different environment, simply add `BROCCOLI_ENV=production` before the build command, e.g.
-`BROCCOLI_ENV=production broccoli build dist`. To make this simpler, lets add a new run command in `package.json`:
+In order to pass in a different environment, simply add `BROCCOLI_ENV=production` before the build command--e.g.,
+`BROCCOLI_ENV=production broccoli build dist`. To make this simpler, let's add a new run command in `package.json`:
 
 ```json
 {

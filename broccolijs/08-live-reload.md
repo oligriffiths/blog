@@ -15,10 +15,10 @@ const funnel = require('broccoli-funnel');
 const merge = require('broccoli-merge-trees');
 const compileSass = require('broccoli-sass-source-maps')(require('sass'));
 const Rollup = require("broccoli-rollup");
-const LiveReload = require('broccoli-livereload');
 const babel = require("rollup-plugin-babel");
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
+const LiveReload = require('broccoli-livereload');
 
 const appRoot = "app";
 
@@ -74,7 +74,7 @@ const public = funnel('public', {
 // Remove the existing module.exports and replace with:
 let tree = merge([html, js, css, public], {annotation: "Final output"});
 
-// Include live reaload server
+// Include live reload server
 tree = new LiveReload(tree, {
   target: 'index.html',
 });

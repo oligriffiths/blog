@@ -1,4 +1,4 @@
-title: 07-Node & Commonjs modules
+title: 07-Node & CommonJS modules
 date: 2018-04-27
 ---
 
@@ -90,10 +90,10 @@ console.log(foo, magic, Bundle, diff([1,2,3], [3,4,5]));
 ```
 
 This will now allow Rollup to import the native `ES6` module `magic-string` (that just happens to be a a dependency of
-`rollup-plugin-commonjs`) with a `default` and a `named` import of `Bundle`, and the Commonjs module `arr-diff` which 
-uses the `module.exports` syntax for both a `default` export. The commonjs plugin also also supports custom named
+`rollup-plugin-commonjs`) with a `default` and a `named` import of `Bundle`, and the CommonJS module `arr-diff` which
+uses the `module.exports` syntax for both a `default` and `named` export. The CommonJS plugin also supports custom named
 exports from CJS npm modules if the `default` export is a plain old javascrit object (POJO), see the
-[CommonJs plugin docs](https://github.com/rollup/rollup-plugin-commonjs#custom-named-exports) for details.
+[CommonJS plugin docs](https://github.com/rollup/rollup-plugin-commonjs#custom-named-exports) for details.
 
 
 Go ahead and run this with `yarn serve` and check the console, you should get:
